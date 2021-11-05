@@ -34,7 +34,7 @@
                         Students will understand the strengths and limitations of every color on and off their palette.
                     </p>
 
-                    <button >Register</button>
+                    <button id="painting">Register</button>
                 </td>
                 <td class="workshopsection"> 
                     <img src="image/Camera.png" height="300" width="400">
@@ -47,7 +47,7 @@
                         <br> Expect to leave the class with a project you are proud of and a working knowledge of your
                         camera.
                     </p>
-                    <button class="register">Register</button>
+                    <button class="register" id="Photography">Register</button>
                 </td>
             </tr>
             <tr>
@@ -61,7 +61,7 @@
                         <br> If you’d like to learn how to properly decorate a cake with sugarpaste fondant then this
                         class is for you. It’s perfect for beginners and improvers.
                     </p>
-                    <button class="register">Register</button>
+                    <button id="cake" class="register">Register</button>
                 </td>
                 <td class="workshopsection">  
                     <img src="image/Design.png" height="300" width="400">
@@ -69,7 +69,7 @@
                     <p>Workshops emphasize poster design principles, appropriate sections for a research poster,
                         presenting your poster, understanding your audience, and evaluating a poster.
                     </p>
-                    <button class="register">Register</button>
+                    <button id="poster" class="register">Register</button>
                 </td>
             </tr>
         </tbody>
@@ -86,5 +86,21 @@
         </p>
     </nav>
 </footer>
+<script>
+  document.getElementById("cake").addEventListener("click", function() {
+  window.alert("succesfully registered in the cake workshop");
+});
 
+document.getElementById("poster").addEventListener("click", function() {
+  window.alert("succesfully registered in the poster workshop");
+});
+
+document.getElementById("Photography").addEventListener("click", function() {
+  window.alert("succesfully registered in the photography workshop");
+});
+
+document.getElementById("painting").addEventListener("click", function() {
+  window.alert("succesfully registered in the painting workshop");
+});
+</script>
 </html>

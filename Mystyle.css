@@ -263,8 +263,9 @@ color: white;
   
   }
 
-
-
+  input[type="password"]::placeholder{
+    color:red;
+  }
 
          
          

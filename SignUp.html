@@ -6,10 +6,9 @@
            Sign up 
         </title>
         <link rel="stylesheet" type="text/css" href="Mystyle.css"/>
-        <script src="MyJS.js">
-        </script>
+       
     </head>
-    <body>
+    <body onload="run()">
         <header>
             <nav id="menu">
                     <label class="logo"><a href="HomePage.html"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
@@ -52,25 +51,28 @@
 <br>
 <br>
 <tr>
-    <p>
-        <input name="name" type="text" value="First Name" id=firstName>
+    <p> First name<br>
+        <input name="name" type="text" id=firstName onfocus="addHintTextFirstName()">
      </p>
     </tr>
     <tr>
-        <p> 
-            <input name="name" type="text" value="Last Name" id=lastName>
+        <p> Last Name<br>
+            <input name="name" type="text" id=lastName onfocus="addHintTextLastName()">
            </p>
     
         </tr>
         <tr>
-<p> 
-<input name="name" type="text" value="Username" id=username>
+<p> Username
+    <br>
+<input name="name" type="text"  id=username onfocus="addHintTextUserName()">
 </p>
 </tr>
 <tr>
   
-<p> 
-  <input name="password" type="password" value="Password" id="herPass">
+<p> Password
+    <br>
+  <input name="password" type="password" id="herPass" onfocus="addHintTextPassword()">
+ 
  </p>
 </tr>
 <tr>
@@ -111,5 +113,20 @@
   </tr>
 </tfoot>
 </table>
+<script>
+    function addHintTextPassword(){
+    document.getElementById("herPass").placeholder = "Enter a password longer than 6 characters";
+}
+function addHintTextFirstName(){
+    document.getElementById("firstName").placeholder = "Type your first name here please";
+}
+function addHintTextLastName(){
+    document.getElementById("lastName").placeholder = "Type your last name here please";
+}
+
+function addHintTextUserName(){
+    document.getElementById("username").placeholder = "Type your user name here please";
+}
+</script>
 </body>
 </html>

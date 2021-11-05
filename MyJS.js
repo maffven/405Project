@@ -1,10 +1,6 @@
-
-const password = document.querySelector('input[type="password"]');
-password.addEventListener('focus', (event) => {
-  event.target.style.background = 'pink';
-});
-
-password.addEventListener('blur', (event) => {
-  event.target.style.background = '';
-});
-
+function addHintTextFirstName(){
+  document.getElementById("herPass").placeholder = "Type your password here please";
+}
+function run(){
+  window.alert("don't stop");
+}
