@@ -249,10 +249,10 @@ font-size: 30px;
 font-family: Times;
 }
      
-/*input[type="submit"]:hover {
+input[type="submit"]:hover {
 background-color: white;
 color:#60B350;
-}*/
+}
 
 button{
   background-color: white;
