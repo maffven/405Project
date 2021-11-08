@@ -64,7 +64,7 @@
         <tr>
 <p> Username
     <br>
-<input name="name" type="text"  id=username onfocus="addHintTextUserName()">
+<input name="name" type="text"  id=username onblur="usernameChangeColor()" onfocus="addHintTextUserName()">
 </p>
 </tr>
 <tr>
@@ -126,6 +126,9 @@ function addHintTextLastName(){
 
 function addHintTextUserName(){
     document.getElementById("username").placeholder = "Type your user name here please";
+}
+function usernameChangeColor(){
+    document.getElementById("username").style.color="green";
 }
 </script>
 </body>
