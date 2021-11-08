@@ -22,54 +22,36 @@
     <table id="workshopTable" border="2px">
         <tbody>
             <tr>
-                <td class="workshopsection" >
+                <td class="workshopsection" onmouseover="writeText('The ability to understand color can easily be broken down into logical methodical elements.br>First, we will learn how to mix what we see by defining a color in terms of hue, saturation,and value.<br>With this method, students will gain the capability to match any color with ease.<br>Next, we will discuss the use for a split primary palette,and the effects of transparent color.Students will understand the strengths and limitations of every color on and off their palette.', 'painting')">
                     <img src="image/painting.png" height="300" width="400">
                     <h2 >Painting Workshop</h2>
-                    <p>The ability to understand color can easily be broken down into logical methodical elements.
-                        <br>First, we will learn how to mix what we see by defining a color in terms of hue, saturation,
-                        and value.<br>
-                        With this method, students will gain the capability to match any color with ease.
-                        <br>Next, we will discuss the use for a split primary palette,and the effects of transparent
-                        color.
-                        Students will understand the strengths and limitations of every color on and off their palette.
+                    <p id="painting">
                     </p>
 
-                    <button id="painting">Register</button>
+                    <button id="paintingButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
                 </td>
-                <td class="workshopsection"> 
+                <td class="workshopsection" onmouseover="writeText('The workshop will include hands-on demonstrations with the camera as well as basic digital image editing techniques. <br> We will discuss the work of great photographers alongside your own photographs in order to better understand the fundamentals of composition to create compelling imagery.<br> Expect to leave the class with a project you are proud of and a working knowledge of your camera.','camera')"> 
                     <img src="image/Camera.png" height="300" width="400">
                     <h2>Photography Workshop</h2>
-                    <p>
-                        The workshop will include hands-on demonstrations with the camera as well as basic digital image
-                        editing techniques.
-                        <br> We will discuss the work of great photographers alongside your own photographs in order to
-                        better understand the fundamentals of composition to create compelling imagery.
-                        <br> Expect to leave the class with a project you are proud of and a working knowledge of your
-                        camera.
+                    <p id="camera">
                     </p>
-                    <button class="register" id="Photography">Register</button>
+                    <button id="Photography" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
                 </td>
             </tr>
             <tr>
-                <td class="workshopsection">
+                <td class="workshopsection" onmouseup="changeColor(this,'white','#60B350')" onmouseover="writeText('Whether you fancy learning something new for fun, you’re new to cake decorating and want to learn new skills or you’re a cake business owner and would like to take your skills to the next level we have something for you. <br> If you’d like to learn how to properly decorate a cake with sugarpaste fondant then this class is for you. It’s perfect for beginners and improvers.','cake')" >
                     <img src="image/Cake.png" height="300" width="400">
                     <h2>Cake Decoration Workshop</h2>
-                    <p>
-                        Whether you fancy learning something new for fun, you’re new to cake decorating and want to
-                        learn new skills or you’re a cake business owner and would like to take your skills to the next
-                        level we have something for you.
-                        <br> If you’d like to learn how to properly decorate a cake with sugarpaste fondant then this
-                        class is for you. It’s perfect for beginners and improvers.
+                    <p id="cake">
                     </p>
-                    <button id="cake" class="register">Register</button>
+                    <button id="cakeButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
                 </td>
-                <td class="workshopsection">  
+                <td class="workshopsection" onmouseover="writeText('Workshops emphasize poster design principles, appropriate sections for a research poster, presenting your poster, understanding your audience, and evaluating a poster.','poster')">  
                     <img src="image/Design.png" height="300" width="400">
                     <h2>Poster Design Workshop</h2>
-                    <p>Workshops emphasize poster design principles, appropriate sections for a research poster,
-                        presenting your poster, understanding your audience, and evaluating a poster.
+                    <p id="poster">
                     </p>
-                    <button id="poster" class="register">Register</button>
+                    <button id="posterButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
                 </td>
             </tr>
         </tbody>
@@ -87,11 +69,21 @@
     </nav>
 </footer>
 <script>
-  document.getElementById("cake").addEventListener("click", function() {
+           function writeText(txt, id) {
+            document.getElementById(id).innerHTML = txt;
+        }
+
+        function changeColor(button, color1, color2) {
+            button.style.backgroundColor = color1;
+            button.style.color = color2;
+
+        }
+        
+  document.getElementById("cakeButt").addEventListener("click", function() {
   window.alert("succesfully registered in the cake workshop");
 });
 
-document.getElementById("poster").addEventListener("click", function() {
+document.getElementById("posterButt").addEventListener("click", function() {
   window.alert("succesfully registered in the poster workshop");
 });
 
@@ -99,7 +91,7 @@ document.getElementById("Photography").addEventListener("click", function() {
   window.alert("succesfully registered in the photography workshop");
 });
 
-document.getElementById("painting").addEventListener("click", function() {
+document.getElementById("paintingButt").addEventListener("click", function() {
   window.alert("succesfully registered in the painting workshop");
 });
 </script>
