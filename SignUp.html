@@ -26,7 +26,11 @@
     <img src="image/signup.png" width="290px" height="200px">
    </tr>
    <tr>
+<<<<<<< HEAD
     <form method="POST" action="Myphp.php"> 
+=======
+<form method ="post" action ="" method="post" onsubmit="return submitdata();">
+>>>>>>> 4116cb1e04aa9828c7e2f8b1ca6fea5dbfb24146
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
     <br>
@@ -64,7 +68,11 @@
         <tr>
 <p> Username
     <br>
+<<<<<<< HEAD
 <input name="username" type="text"  id=username onfocus="addHintTextUserName()">
+=======
+<input name="name" type="text"  id=username onblur="usernameChangeColor()" onfocus="addHintTextUserName()">
+>>>>>>> 4116cb1e04aa9828c7e2f8b1ca6fea5dbfb24146
 </p>
 </tr>
 <tr>
@@ -127,6 +135,11 @@ function addHintTextLastName(){
 function addHintTextUserName(){
     document.getElementById("username").placeholder = "Type your user name here please";
 }
+function usernameChangeColor(){
+    document.getElementById("username").style.color="green";
+}
 </script>
+
+<script src="MyJS.js"></script>
 </body>
 </html>
