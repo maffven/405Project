@@ -67,8 +67,6 @@ function test_input($data) {
   }
 
   
-<<<<<<< Updated upstream
-=======
 function sql_connection(){
 $servername = "localhost";
 $username = "username";
@@ -105,8 +103,5 @@ if ($conn->query($sql) === TRUE) { 
   else {   
      echo "Error creating table: " . $conn->error;}$conn->close();
 }
-
->>>>>>> Stashed changes
-
 
 ?> 
