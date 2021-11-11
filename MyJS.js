@@ -23,8 +23,8 @@ function addHintTextLastName(){
   document.getElementById("lastName").placeholder = "Type your last name here please";
 }
 
-function addHintTextUserName(){
-  document.getElementById("username").placeholder = "Type your user name here please";
+function addHintTextEmail(){
+  document.getElementById("email").placeholder = "Type your user name here please";
 }
 
 function changeColor(id){
