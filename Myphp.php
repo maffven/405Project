@@ -76,6 +76,7 @@ $conn = new mysqli($servername, $username, $password);
       die("Connection failed: " . $conn->connect_error);} 
      echo "Connected successfully";
 }
+
 function create_db(){
   // Create database
   $sql = "CREATE DATABASE myDB"
@@ -83,6 +84,8 @@ function create_db(){
         echo "Database created successfully";} else { 
          echo "Error creating database: " . $conn->error;}$conn->close();
 }
+
+
 function create_user_table(){
 // sql to create table
 $sql = "CREATE TABLE User (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -91,6 +94,8 @@ email VARCHAR(50),password VARCHAR(50))";if ($conn->query($sql) === TRUE) {
      echo "Table User created successfully";} else {   
      echo "Error creating table: " . $conn->error;}$conn->close();
 }
+
+
 function create_workshops_table(){
 // sql to create table
 $sql = "CREATE TABLE Workshop (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
