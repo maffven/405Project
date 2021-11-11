@@ -1,10 +1,8 @@
 <?php 
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $usernameerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $username = $gender = $agreement = $reason=  " ";
-
+$conn = $sql ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
@@ -103,5 +101,4 @@ if ($conn->query($sql) === TRUE) { 
   else {   
      echo "Error creating table: " . $conn->error;}$conn->close();
 }
-
 ?> 
