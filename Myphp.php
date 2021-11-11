@@ -1,10 +1,8 @@
 <?php 
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $usernameerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $username = $gender = $agreement = $reason=  " ";
-
+$conn = $sql ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
@@ -67,6 +65,40 @@ function test_input($data) {
   }
 
   
-
-
+function sql_connection(){
+$servername = "localhost";
+$username = "username";
+$password = "password";
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+// Check connection
+   if ($conn->connect_error) {  
+      die("Connection failed: " . $conn->connect_error);} 
+     echo "Connected successfully";
+}
+function create_db(){
+  // Create database
+  $sql = "CREATE DATABASE myDB"
+  ;if ($conn->query($sql) === TRUE) {
+        echo "Database created successfully";} else { 
+         echo "Error creating database: " . $conn->error;}$conn->close();
+}
+function create_user_table(){
+// sql to create table
+$sql = "CREATE TABLE User (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),password VARCHAR(50))";if ($conn->query($sql) === TRUE) { 
+     echo "Table User created successfully";} else {   
+     echo "Error creating table: " . $conn->error;}$conn->close();
+}
+function create_workshops_table(){
+// sql to create table
+$sql = "CREATE TABLE Workshop (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30) NOT NULL,date TIMESTAMP NOT NULL,
+email VARCHAR(50))";
+if ($conn->query($sql) === TRUE) { 
+     echo "Table Workshop created successfully";} 
+  else {   
+     echo "Error creating table: " . $conn->error;}$conn->close();
+}
 ?> 
