@@ -38,7 +38,9 @@
     <label> Gender: 
      <label> Female
      <input type="radio" name="gender" value="Female" id="Female"></label>
-     <span><?php if(isset($genderErr)) echo #genderErr; ?></span>
+     <?php if(isset($genderErr)) { ?>
+      <p><?php echo $genderErr ?></p>
+      <?php } ?>
      <label> Male
      <input type="radio" name="gender" value="Male" id="Male"></label></label>
      <br>
@@ -51,6 +53,9 @@
 <option id="IS"> IS </option>
 <option id="CS"> CS</option>
 </select>
+<?php if(isset($majorerr)) { ?>
+      <p><?php echo $majorerr ?></p>
+      <?php } ?>
     </label>
 </tr>
 <br>
@@ -58,11 +63,17 @@
 <tr>
     <p> First name<br>
         <input name="Fname" type="text" id="firstName" onblur="changeColor(id)" onfocus="addHintTextFirstName()">
+        <?php if(isset($Fnameerr)) { ?>
+      <p><?php echo $Fnameerr ?></p>
+      <?php } ?>
      </p>
     </tr>
     <tr>
         <p> Last Name<br>
             <input name="Lname" type="text" id="lastName" onblur="changeColor(id)"  onfocus="addHintTextLastName()">
+            <?php if(isset($Lnameerr)) { ?>
+      <p><?php echo $Lnameerr ?></p>
+      <?php } ?>
            </p>
     
         </tr>
@@ -72,6 +83,9 @@
 
 
 <input name="email" type="text"  id="email" onblur="changeColor(id)" onfocus="addHintTextEmail()">
+<?php if(isset($emailerr)) { ?>
+      <p><?php echo $emailerr ?></p>
+      <?php } ?>
 </p>
 </tr>
 <tr>
@@ -79,7 +93,9 @@
 <p> Password
     <br>
   <input name="password" type="password" id="herPass" onfocus="addHintTextPassword()">
-
+  <?php if(isset($passworderr)) { ?>
+      <p><?php echo $passworderr ?></p>
+      <?php } ?>
  
  </p>
 </tr>
@@ -87,6 +103,9 @@
     <p> <label> Reason <br>
         <br>
       <textarea name="reason" rows="10" col="1000" > Tell us why you want to register in our website</textarea>
+      <?php if(isset($reasonerr)) { ?>
+      <p><?php echo $reasonerr ?></p>
+      <?php } ?>
       </label></p>
   </tr>
 <tr>
@@ -94,6 +113,9 @@
     <input name="agreement" type="checkbox"  >
     <label> I agree to recieve notifications regarding workshops via my email 
      </label>
+     <?php if(isset($agreementerr)) { ?>
+      <p><?php echo $agreementerr ?></p>
+      <?php } ?>
      <br>
      <br>
     <input type="submit" value="Sign Up">

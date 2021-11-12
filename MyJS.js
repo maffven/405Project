@@ -24,7 +24,7 @@ function addHintTextLastName(){
 }
 
 function addHintTextEmail(){
-  document.getElementById("email").placeholder = "Type your user name here please";
+  document.getElementById("email").placeholder = "Type your email here please";
 }
 
 function changeColor(id){
