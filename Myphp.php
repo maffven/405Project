@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
       if (empty($_POST["email"])) {
         $emailerr = 'email is required';
       } else {
-        $email = test_input($_POST["username"]);
+        $email = test_input($_POST["email"]);
       }
 
       if (empty($_POST["password"])) {
