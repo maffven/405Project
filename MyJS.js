@@ -1,11 +1,11 @@
 
 
-function submitdata() { 
+function createAccount() { 
   var r = confirm('Press ok to confirm your submission.');
 
    if (r == true) {
 
-       window.open('http://www.google.com');
+       window.location.replace('LOGIN.html');
    } else {
        alert('Submission Failed');
    }
