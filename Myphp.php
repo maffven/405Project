@@ -1,8 +1,7 @@
 <?php 
-$Fnameerr = $Lnameerr  = $majorerr = $passworderr = $usernameerr = $gendererr = $agreementerr = " ";
-$Fname = $Lname  = $major = $password = $username = $gender = $agreement = $reason=  " ";
+$Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
+$Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
 $conn = $sql ="";
-if (isset($_POST['form_submitted'])){
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
@@ -16,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $Lname = test_input($_POST["Lname"]);
       }
 
-      if (empty($_POST["username"])) {
-        $usernameerr = 'username is required';
+      if (empty($_POST["email"])) {
+        $emailerr = 'email is required';
       } else {
-        $username = test_input($_POST["username"]);
+        $email = test_input($_POST["username"]);
       }
 
       if (empty($_POST["password"])) {
@@ -57,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $agreementerr = 'Please agree first';
     }
 }
-}
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
