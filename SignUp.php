@@ -9,6 +9,72 @@
        
     </head>
     <body onload="run()">
+    <?php 
+$Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
+$Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
+$conn = $sql ="";
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (empty($_POST["Fname"])) {
+        $Fnameerr = 'First name is required';
+      } else {
+        $Fname = test_input($_POST["Fname"]);
+      }
+
+      if (empty($_POST["Lname"])) {
+        $Lnameerr = 'Last name is required';
+      } else {
+        $Lname = test_input($_POST["Lname"]);
+      }
+
+      if (empty($_POST["email"])) {
+        $emailerr = 'email is required';
+      } else {
+        $email = test_input($_POST["email"]);
+      }
+
+      if (empty($_POST["password"])) {
+        $passworderr = 'password is required';
+      } else {
+        $password = test_input($_POST["password"]);
+      }
+
+      if (empty($_POST["Lname"])) {
+        $Lnameerr = 'Last name is required';
+      } else {
+        $Lname = test_input($_POST["Lname"]);
+      }
+
+      if (empty($_POST["reason"])) {
+        $reason = '';
+      } else {
+        $reason = test_input($_POST["reason"]);
+      }
+
+      if (!isset($_POST["gender"])) {
+        $genderErr = 'Gender is required';
+      } else {
+        $gender = test_input($_POST["gender"]);
+      }
+
+      if($_POST['major'] == -1){
+          $majorerr = 'Major is required';
+      }else{
+          $major = test_input($_POST["major"]);
+      }
+      if(filter_has_var(INPUT_POST,'agreement')){
+        $agreement = test_input($_POST["agreement"]);
+    }else{
+        $agreementerr = 'Please agree first';
+    }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+?>
         <header>
             <nav id="menu">
                     <label class="logo"><a href="HomePage.html"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
@@ -29,7 +95,7 @@
 
 
 
-<form method ="post" action ="Myphp.php">
+<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
@@ -39,7 +105,7 @@
      <label> Female
      <input type="radio" name="gender" value="Female" id="Female"></label>
      <?php if(isset($genderErr)) { ?>
-      <p><?php echo $genderErr ?></p>
+      <span><?php echo $genderErr ?></span>
       <?php } ?>
      <label> Male
      <input type="radio" name="gender" value="Male" id="Male"></label></label>
@@ -59,12 +125,13 @@
     </label>
 </tr>
 <br>
-<br>
 <tr>
     <p> First name<br>
         <input name="Fname" type="text" id="firstName" onblur="changeColor(id)" onfocus="addHintTextFirstName()">
-        <?php if(isset($Fnameerr)) { ?>
-      <p><?php echo $Fnameerr ?></p>
+        <?php if(isset($Fnameerr)) { 
+            
+            ?>
+      <h5><?php echo $Fnameerr ?></h5>
       <?php } ?>
      </p>
     </tr>
@@ -72,7 +139,7 @@
         <p> Last Name<br>
             <input name="Lname" type="text" id="lastName" onblur="changeColor(id)"  onfocus="addHintTextLastName()">
             <?php if(isset($Lnameerr)) { ?>
-      <p><?php echo $Lnameerr ?></p>
+      <h5><?php echo $Lnameerr ?></h5>
       <?php } ?>
            </p>
     
@@ -84,7 +151,7 @@
 
 <input name="email" type="text"  id="email" onblur="changeColor(id)" onfocus="addHintTextEmail()">
 <?php if(isset($emailerr)) { ?>
-      <p><?php echo $emailerr ?></p>
+      <h5><?php echo $emailerr ?></h5>
       <?php } ?>
 </p>
 </tr>
@@ -94,7 +161,7 @@
     <br>
   <input name="password" type="password" id="herPass" onfocus="addHintTextPassword()">
   <?php if(isset($passworderr)) { ?>
-      <p><?php echo $passworderr ?></p>
+      <h5><?php echo $passworderr ?></h5>
       <?php } ?>
  
  </p>
@@ -104,7 +171,7 @@
         <br>
       <textarea name="reason" rows="10" col="1000" > Tell us why you want to register in our website</textarea>
       <?php if(isset($reasonerr)) { ?>
-      <p><?php echo $reasonerr ?></p>
+      <h5><?php echo $reasonerr ?></h5>
       <?php } ?>
       </label></p>
   </tr>
@@ -114,7 +181,7 @@
     <label> I agree to recieve notifications regarding workshops via my email 
      </label>
      <?php if(isset($agreementerr)) { ?>
-      <p><?php echo $agreementerr ?></p>
+      <h5><?php echo $agreementerr ?></h5>
       <?php } ?>
      <br>
      <br>
