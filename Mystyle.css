@@ -175,72 +175,61 @@ textarea {
 
 
 form{
-   text-align: center;
- }
+  text-align: center;
+}
 
- input[type="text"], input[type="password"] {
-     width: 300px;
-     height: 30px;
-     font-family: sans-serif;
-     font-size:14px;
- }
+input[type="text"], input[type="password"] {
+    width: 300px;
+    height: 30px;
+    font-family: sans-serif;
+    font-size:14px;
+}
 
  
 
-input[type="submit"]{
-font-family: sans-serif; 
+input[type="submit"], input[type="reset"]{
+font-family: Times, sans-serif; 
   width: 100px;
   background-color: #60B350;
   color: white;
   font-size:20px;
  }
 
-
-#container{
-       background-color:blanchedalmond;
-       border-radius: 25px;
-     }
-
-input[type="submit"]:hover {
+input[type="submit"]:hover, input[type="reset"]:hover {
 background-color: white;
 color: #60B350;
-     }
-   
-     footer{
-        padding-top: 30px;
-        background-color: #33334d;
-        color:white;
-        font-size: 15px;
-        text-align: center;
-        padding-bottom: 30px;
-        margin-top: 20px;
       }
+
+#container{
+  background-color:blanchedalmond;
+  border-radius: 25px;
+}
+
+footer{
+  padding-top: 30px;
+  background-color: #33334d;
+  color:white;
+  font-size: 15px;
+  text-align: center;
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
 
 p>a{
 color: white;
 }
 
 
- input[type="text"], input[type="password"] {
-     width: 300px;
-     height: 30px;
-     font-family: Times;
-     font-size:14px;
-     border-color: darkgreen;
- }
+input[type="text"], input[type="password"] {
+    width: 300px;
+    height: 30px;
+    font-family: Times;
+    font-size:14px;
+    border-color: darkgreen;
+}
 
- label{
-  font-family: Times;
- }
-
-
-
-input[type="submit"]{
-  font-family: Times;
-  width: 100px;
-  background-color: #60B350;
-  color: white;
-  font-size:20px;
+label{
+font-family: Times;
 }
 
 #login{
@@ -249,11 +238,6 @@ font-size: 30px;
 font-family: Times;
 }
      
-input[type="submit"]:hover {
-background-color: white;
-color:#60B350;
-}
-
 button{
   background-color: white;
   color:#60B350;

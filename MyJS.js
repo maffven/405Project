@@ -1,6 +1,6 @@
 
 
-function createAccount() { 
+function confirmCreate() { 
   var r = confirm('Press ok to confirm your submission.');
 
    if (r == true) {
@@ -8,6 +8,19 @@ function createAccount() {
        window.location.replace('LOGIN.html');
    } else {
        alert('Submission Failed');
+   }
+   return false;         
+
+}
+
+function cancelCreate() { 
+  var r = confirm('Are you sure you want to cancel?');
+
+   if (r == true) {
+
+       window.location.replace('HomePage.html');
+   } else {
+       alert('Cancellation Failed');
    }
    return false;         
 
