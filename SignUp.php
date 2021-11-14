@@ -109,7 +109,7 @@ function test_input($data) {
 
 
 
-<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return confirmCreate();" onreset="return cancelCreate();">
+   <form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return confirmCreate();" onreset="return cancelCreate();">
 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
@@ -200,6 +200,7 @@ function test_input($data) {
      <br>
      <br>
     <input type="submit" value="Sign Up">
+    <input type="reset" value="Cancel" >
 
 </form>
 
