@@ -32,6 +32,7 @@ for($i = 0; $i < 5; $i++) {
       }
      
 }
+
 function checkLogin($email, $password){
     $servername = "localhost";
     $username = "root";
@@ -54,6 +55,29 @@ function checkLogin($email, $password){
     }else{
     echo "Login info is wrong";
     }
+}
+
+function checkEmail($email){
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $id = rand();
+   try{
+   // Create connection
+   $conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
+   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   echo "connected successfully";
+   
+   }catch(PDOException $e){
+      echo "connection failed";
+   }
+ 
+   $sql = "SELECT Email FROM User WHERE Email = '$email'";
+   $result = $conn->query($sql);
+   if($result->rowCount() > 0){
+   return false;
+ }
+
 }
 
 ?>

@@ -31,20 +31,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $checkLn=1;
       }
 
+  
+      $emailValidation = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL); //to filter characters
       if (empty($_POST["email"])) {
         $emailerr = 'email is required';
-      } else {
+      } else if((filter_var($emailValidation,FILTER_VALIDATE_EMAIL)) === false){
+        $emailerr = 'email is not valid';
+      }else if(checkEmail($_POST["email"]) === false){
+        $emailerr = 'This email is already exist';
+      }
+      else{
         $email = test_input($_POST["email"]);
         $checkEmail=1;
       }
 
+
+      
       if (empty($_POST["password"])) {
         $passworderr = 'password is required';
-      } else {
+      }else if(strlen($_POST['password'])<= 6 ){
+        $passworderr= 'password must be greater than 6 characters'; 
+      }else{
         $password = test_input($_POST["password"]);
         $checkPass=1;
       }
-
+  
       if (empty($_POST["reason"])) {
         $reason = '';
       } else {
@@ -109,7 +120,7 @@ function test_input($data) {
 
 
 
-   <form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return confirmCreate();" onreset="return cancelCreate();">
+   <form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onreset="return cancelCreate();">
 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
