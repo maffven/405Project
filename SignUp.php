@@ -15,64 +15,67 @@
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
 $conn = $sql ="";
+$checkMajor = $checkEmail = $checkFn = $checkGender = $checkLn = $checkReason = $checkAgree= $checkPass =0;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'func.php';
-   
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
         $Fname = test_input($_POST["Fname"]);
+        $checkFn=1;
       }
 
       if (empty($_POST["Lname"])) {
         $Lnameerr = 'Last name is required';
       } else {
         $Lname = test_input($_POST["Lname"]);
+        $checkLn=1;
       }
 
       if (empty($_POST["email"])) {
         $emailerr = 'email is required';
       } else {
         $email = test_input($_POST["email"]);
+        $checkEmail=1;
       }
 
       if (empty($_POST["password"])) {
         $passworderr = 'password is required';
       } else {
         $password = test_input($_POST["password"]);
-      }
-
-      if (empty($_POST["Lname"])) {
-        $Lnameerr = 'Last name is required';
-      } else {
-        $Lname = test_input($_POST["Lname"]);
+        $checkPass=1;
       }
 
       if (empty($_POST["reason"])) {
         $reason = '';
       } else {
         $reason = test_input($_POST["reason"]);
+        $checkReason=1;
       }
 
       if (!isset($_POST["gender"])) {
         $genderErr = 'Gender is required';
       } else {
         $gender = test_input($_POST["gender"]);
+        $checkGender=1;
       }
 
       if($_POST['major'] == -1){
           $majorerr = 'Major is required';
       }else{
           $major = test_input($_POST["major"]);
+          $checkMajor=1;
       }
       if(filter_has_var(INPUT_POST,'agreement')){
         $agreement = test_input($_POST["agreement"]);
+        $checkAgree=1;
     }else{
         $agreementerr = 'Please agree first';
+     
     }
   
-  if($checkMajor==1 && $checkEmail==1 && $checkFn==1 && $checkGender==1 && $checkLn==1 && $checkMajor==1 && $checkPass
-==1 && $checkReason==1){
+  if($checkEmail==1 && $checkFn==1 && $checkGender==1 && $checkLn==1 && $checkMajor==1 && $checkPass
+==1 && $checkReason==1 && $checkAgree==1){
     addUser($Fname, $Lname, $reason, $gender,$email, $password, $major);
    
 }
