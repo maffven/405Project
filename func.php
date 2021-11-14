@@ -1,8 +1,6 @@
 <?php
 
 //include 'connection.php';
-
-function addUser($Fname, $Lname, $reason, $gender,$email, $password,$major){
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,6 +14,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }catch(PDOException $e){
  //   echo "connection failed";
 }
+function addUser($Fname, $Lname, $reason, $gender,$email, $password,$major){
+
 
 $id = '';
 for($i = 0; $i < 5; $i++) {
