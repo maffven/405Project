@@ -11,7 +11,6 @@
     </head>
     <body onload="run()">
     <?php 
- include 'connection.php';
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
 $conn = $sql ="";
@@ -110,7 +109,7 @@ function test_input($data) {
 
 
 
-<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return confirmCreate();" onreset="return cancelCreate();">
 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>

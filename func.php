@@ -1,33 +1,36 @@
 <?php
 
-include 'connection.php';
+//include 'connection.php';
 
 function addUser($Fname, $Lname, $reason, $gender,$email, $password,$major){
-    echo "hi";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$id = rand();
+try{
+// Create connection
+$conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//echo "connected successfully";
 
-    try {
-       
+}catch(PDOException $e){
+ //   echo "connection failed";
+}
+
+$id = '';
+for($i = 0; $i < 5; $i++) {
+    $id .= mt_rand(0, 9);
+}
+   try {
         $sql = "INSERT INTO User (Id, Pass, Email, Major, Firstname, Lastname, Reason, Agreement, Gender)
-        VALUES ('1','$password','$email','$major','$fname','$lname','$reason','true','$gender')";
+        VALUES ('$id','$password','$email','$major','$Lname','$Fname','$reason','1','$gender')";
         // use exec() because no results are returned
         $conn->exec($sql);
-        echo "New record created successfully";
+        //echo "New record created successfully";
       } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
       }
       
-   /* $sql = "INSERT INTO `User`(`Id`, `Pass`, `Email`, `Major`, `Firstname`, `Lastname`, `Reason`, `Agreement`, `Gender`) 
-    VALUES ('1','$password','$email','$major','$fname','$lname','$reason','true','$gender')";
-$run = mysqli_query($conn,$sql) or die (mysqli_error());
-if($run){
-    echo "form submitted successfully";
-}
-
-echo "form not submitted successfully";*/
-/* $sql = "INSERT INTO 'User' (Id,Firstname,Lastname,Email,Pass,Reason,Gender,Major)
- VALUES ('1', '$fname','$lname','$email','$password','$reason','$gender','$major')";
- if ($conn->query($sql) === TRUE) {   
-     echo "New record created successfully";} else {  
-          echo "Error: " . $sql . "<br>" . $conn->error;}*/
+   
 }
 ?>
