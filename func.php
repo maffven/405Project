@@ -2,7 +2,7 @@
 
 //include 'connection.php';
 
-function addUser($Fname, $Lname, $reason, $gender,$email, $password,$major){
+function addUser($Fname, $Lname, $reason, $gender,$email, $passwordd,$major){
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,10 +11,10 @@ try{
 // Create connection
 $conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//echo "connected successfully";
+echo "connected successfully";
 
 }catch(PDOException $e){
- //   echo "connection failed";
+   echo "connection failed";
 }
 
 $id = '';
@@ -23,10 +23,10 @@ for($i = 0; $i < 5; $i++) {
 }
    try {
         $sql = "INSERT INTO User (Id, Password, Email, Major, Firstname, Lastname, Reason, Agreement, Gender)
-        VALUES ('$id','$password','$email','$major','$Lname','$Fname','$reason','1','$gender')";
+        VALUES ('$id','$passwordd','$email','$major','$Lname','$Fname','$reason','1','$gender')";
         // use exec() because no results are returned
         $conn->exec($sql);
-        //echo "New record created successfully";
+        echo "New record created successfully";
       } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
       }
