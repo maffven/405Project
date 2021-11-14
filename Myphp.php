@@ -90,7 +90,7 @@ function create_user_table(){
 // sql to create table
 $sql = "CREATE TABLE User (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(30) NOT NULL,lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),password VARCHAR(50))";if ($conn->query($sql) === TRUE) { 
+email VARCHAR(50),password VARCHAR(50) , reason VARCHAR(50), agreement BIT(5))";if ($conn->query($sql) === TRUE) { 
      echo "Table User created successfully";} else {   
      echo "Error creating table: " . $conn->error;}$conn->close();
 }

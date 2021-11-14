@@ -1,3 +1,4 @@
+
 <!--HTML PROJECT SIGN UP  -->
 <!DOCTYPE html>
 <html>
@@ -10,10 +11,13 @@
     </head>
     <body onload="run()">
     <?php 
+ include 'connection.php';
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
 $conn = $sql ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    include 'func.php';
+   
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
@@ -66,6 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }else{
         $agreementerr = 'Please agree first';
     }
+  
+  if($checkMajor==1 && $checkEmail==1 && $checkFn==1 && $checkGender==1 && $checkLn==1 && $checkMajor==1 && $checkPass
+==1 && $checkReason==1){
+    addUser($Fname, $Lname, $reason, $gender,$email, $password, $major);
+   
+}
 }
 
 function test_input($data) {
@@ -74,7 +84,9 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
+ 
 ?>
+
         <header>
             <nav id="menu">
                     <label class="logo"><a href="HomePage.html"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
@@ -95,7 +107,7 @@ function test_input($data) {
 
 
 
-<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return confirmCreate();" onreset="return cancelCreate();">
+<form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
@@ -186,7 +198,6 @@ function test_input($data) {
      <br>
      <br>
     <input type="submit" value="Sign Up">
-    <input type="reset" value="Cancel" >
 
 </form>
 
