@@ -4,9 +4,16 @@ $username = "root";
 $password = "";
 
 try{
-// Create connection
-$conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
+//Create database
+$conn = new PDO("mysql:host=$servername", $username, $password);
+
+// set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "CREATE DATABASE Workshops";
+
+// use exec() because no results are returned
+$conn->exec($sql);
+echo "Database created successfully<br>";
 
 //create user table
 $sql = "CREATE TABLE `user` (
@@ -21,11 +28,11 @@ $sql = "CREATE TABLE `user` (
   `Gender` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
   
-  // use exec() because no results are returned
+// use exec() because no results are returned
   $conn->exec($sql);
   echo "Table User created successfully";
 
-//create workshop table
+// create workshop table
 $sql = "CREATE TABLE `workshop` (
   `Title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Description` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -33,7 +40,7 @@ $sql = "CREATE TABLE `workshop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
   
 
-  // use exec() because no results are returned
+// use exec() because no results are returned
   $conn->exec($sql);
   echo "Table Workshop created successfully";
   
