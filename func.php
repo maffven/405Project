@@ -11,10 +11,10 @@ try{
 // Create connection
 $conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "connected successfully";
+//echo "connected successfully";
 
 }catch(PDOException $e){
-   echo "connection failed";
+  // echo "connection failed";
 }
 
 $id = '';
@@ -26,14 +26,15 @@ for($i = 0; $i < 5; $i++) {
         VALUES ('$id','$passwordd','$email','$major','$Lname','$Fname','$reason','1','$gender')";
         // use exec() because no results are returned
         $conn->exec($sql);
-        echo "New record created successfully";
+        echo '<script> alert("Registered successfully")</script>';
+        //echo "New record created successfully";
       } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
       }
      
 }
 
-function checkLogin($email, $password){
+function checkLogin($email, $passwordd){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -42,18 +43,20 @@ function checkLogin($email, $password){
     // Create connection
     $conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connected successfully";
+    //echo "connected successfully";
     
     }catch(PDOException $e){
-       echo "connection failed";
+      // echo "connection failed";
     }
 
-    $sql = "SELECT * FROM User WHERE Email = '$email' AND Password = '$password'";
+    $sql = "SELECT * FROM User WHERE Email = '$email' AND Password = '$passwordd'";
     $result = $conn->query($sql);
     if($result->rowCount() > 0){
-    echo "Logged in successfully";
+       echo '<script> alert("Logged in successfully")</script>';
+   // echo "Logged in successfully";
     }else{
-    echo "Login info is wrong";
+      echo '<script> alert("Login info is wrong")</script>';
+    //echo "Login info is wrong";
     }
 }
 
@@ -66,10 +69,10 @@ function checkEmail($email){
    // Create connection
    $conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   echo "connected successfully";
+  // echo "connected successfully";
    
    }catch(PDOException $e){
-      echo "connection failed";
+     // echo "connection failed";
    }
  
    $sql = "SELECT Email FROM User WHERE Email = '$email'";

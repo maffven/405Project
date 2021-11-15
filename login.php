@@ -16,7 +16,7 @@
                <ul>
                 <li><a calss="active" href="HomePage.html">Home</a></li>
                 <li><a href="index.html">Workshops</a></li>
-                <li><a href="LOGIN.html">Login</a></li>
+                <li><a href="LOGIN.php">Login</a></li>
                </ul>
             </nav>
     </header>
@@ -50,9 +50,10 @@
   }
 
 if($checkPass==1 && $checkEmail==1){
+  checkLogin($email, $password);
    $email = validate($_POST['email']);
     $password = validate($_POST['password']);
-    checkLogin($email, $password);
+   
 }
  }
   function test_input($data) {
