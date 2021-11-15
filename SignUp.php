@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $checkLn=1;
       }
 
-  
       $emailValidation = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL); //to filter characters
       if (empty($_POST["email"])) {
         $emailerr = 'email is required';
@@ -106,7 +105,7 @@ function test_input($data) {
                    <ul>
                     <li><a calss="active" href="HomePage.html">Home</a></li>
                 <li><a href="index.html">Workshops</a></li>
-                <li><a href="LOGIN.html">Login</a></li>
+                <li><a href="LOGIN.php">Login</a></li>
                    </ul>
                 </nav>
         </header>
