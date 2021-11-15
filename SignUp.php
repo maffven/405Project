@@ -129,11 +129,11 @@ function test_input($data) {
     <label> Gender: 
      <label> Female
      <input type="radio" name="gender" value="Female" id="Female"></label>
+     <label> Male
+     <input type="radio" name="gender" value="Male" id="Male"></label></label>
      <?php if(isset($genderErr)) { ?>
       <h5><?php echo $genderErr ?></h5>
       <?php } ?>
-     <label> Male
-     <input type="radio" name="gender" value="Male" id="Male"></label></label>
      <br>
     </tr>
 <br>
