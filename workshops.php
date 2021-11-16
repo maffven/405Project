@@ -3,6 +3,10 @@
 <head>
     <title>Workshops</title>
     <link rel="stylesheet" type="text/css" href="Mystyle.css">
+    <?php
+    session_start();
+    include 'func.php';
+    ?>
 </head>
 
 <body>
@@ -14,16 +18,15 @@
                 <li><a href="workshops.php">Workshops</a></li>
 
                 <li>
-                    <?php if (!isset($_SESSION['userEmail'])) {
-                        echo "<a href='logout.php'>Logout</a>";
-                    } else {
-                        echo "<a href='login.php'>Login</a>";
-                    } ?>
+                    <?php if(!isset($_SESSION['userEmail'])){
+                     echo "<a href='login.php'>Login</a>";
+                    } else{
+                        echo "<a href='logout.php'>Logout</a>"; }?>
                 </li>
             </ul>
         </nav>
     </header>
-    <a class="active" href="HomePage.html">
+    <a class="active" href="home.php">
         <img class="arrow" src="image/back-4.png" width="50px" height="50px"></a>
     <h1>Workshops available</h1>
     <table id="workshopTable" border="2px">
@@ -38,14 +41,11 @@
                     <button id="paintingButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')" type="button" onclick="return false"> Register</button>
 
                     <?php
+                    $title1 = 'Painting Workshop';
+                    $seatNum1 = checkSeats($title1);
 
-                    session_start();
-                    include 'func.php';
-                    $title = 'Painting Workshop';
-                    $seatNum = checkSeats($title);
-
-                    if ($seatNum > 0) {
-                        echo "Available seats: " . $seatNum;
+                    if ($seatNum1 > 0) {
+                        echo "Available seats: " . $seatNum1;
                     } else {
                         echo "No available seats. ";
                     }
@@ -57,6 +57,17 @@
                     <p id="camera">
                     </p>
                     <button id="Photography" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
+                
+                    <?php
+                    $title2 = 'Photography Workshop';
+                    $seatNum2 = checkSeats($title2);
+
+                    if ($seatNum2 > 0) {
+                        echo "Available seats: " . $seatNum2;
+                    } else {
+                        echo "No available seats. ";
+                    }
+                    ?>
                 </td>
             </tr>
             <tr>
@@ -66,13 +77,36 @@
                     <p id="cake">
                     </p>
                     <button id="cakeButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
+                
+                    <?php
+                    $title3 = 'Cake Decoration Workshop';
+                    $seatNum3 = checkSeats($title3);
+
+                    if ($seatNum3 > 0) {
+                        echo "Available seats: " . $seatNum3;
+                    } else {
+                        echo "No available seats. ";
+                    }
+                    ?>
                 </td>
+
                 <td class="workshopsection" onmouseover="writeText('Workshops emphasize poster design principles, appropriate sections for a research poster, presenting your poster, understanding your audience, and evaluating a poster.','poster')">
                     <img src="image/Design.png" height="300" width="400">
                     <h2>Poster Design Workshop</h2>
                     <p id="poster">
                     </p>
                     <button id="posterButt" onmouseup="changeColor(this,'white','#60B350')" onmousedown="changeColor(this,'orange','white')">Register</button>
+                
+                    <?php
+                    $title4 = 'Poster Design Workshop';
+                    $seatNum4 = checkSeats($title4);
+
+                    if ($seatNum4 > 0) {
+                        echo "Available seats: " . $seatNum4;
+                    } else {
+                        echo "No available seats. ";
+                    }
+                    ?>
                 </td>
             </tr>
         </tbody>
@@ -101,23 +135,86 @@
     }
 
     document.getElementById("cakeButt").addEventListener("click", function() {
+        <?php
+        if (isset($_SESSION["userEmail"]) && $seatNum3 > 0) {
+        if(!isset($_SESSION['isreg'])){
+        updateSeat($seatNum3, $title3); 
+        ?>
         window.alert("succesfully registered in the cake workshop");
+        location.reload();
+                
+
+            <?php 
+        }else{
+            ?>
+            window.alert("you already registered in one of the workshops");
+            <?php
+        }
+    } else {
+            ?>
+            window.alert("you have to login!!");
+        <?php
+        }
+
+        ?>
     });
 
     document.getElementById("posterButt").addEventListener("click", function() {
+        <?php
+    if (isset($_SESSION["userEmail"]) && $seatNum4 > 0) {
+        if(!isset($_SESSION['isreg'])){
+        updateSeat($seatNum4, $title4); 
+        ?>
         window.alert("succesfully registered in the poster workshop");
+        location.reload();
+                
+
+            <?php 
+        }else{
+            ?>
+            window.alert("you already registered in one of the workshops");
+            <?php
+        }
+    } else {
+            ?>
+            window.alert("you have to login!!");
+        <?php
+        }
+
+        ?>
     });
 
     document.getElementById("Photography").addEventListener("click", function() {
+        <?php
+    if (isset($_SESSION["userEmail"]) && $seatNum2 > 0) {
+        if(!isset($_SESSION['isreg'])){
+        updateSeat($seatNum2, $title2); 
+        ?>
         window.alert("succesfully registered in the photography workshop");
+        location.reload();
+                
+
+            <?php 
+        }else{
+            ?>
+            window.alert("you already registered in one of the workshops");
+            <?php
+        }
+    } else {
+            ?>
+            window.alert("you have to login!!");
+        <?php
+        }
+
+        ?>
 
     });
 
     document.getElementById("paintingButt").addEventListener("click", function() {
         <?php
-    if (isset($_SESSION["userEmail"]) && $seatNum > 0) {
+    if (isset($_SESSION["userEmail"]) && $seatNum1 > 0) {
         if(!isset($_SESSION['isreg'])){
-        updateSeat($seatNum, $title); 
+        updateSeat($seatNum1, $title1); 
         ?>
         window.alert("succesfully registered in the painting workshop");
         location.reload();
@@ -126,7 +223,7 @@
             <?php 
         }else{
             ?>
-            window.alert("you already reg in one of the workshop");
+            window.alert("you already registered in one of the workshops");
             <?php
         }
     } else {

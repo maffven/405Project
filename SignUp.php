@@ -104,10 +104,10 @@ function test_input($data) {
 
         <header>
             <nav id="menu">
-                    <label class="logo"><a href="HomePage.html"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
+                    <label class="logo"><a href="home.php"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
                    <ul>
-                    <li><a calss="active" href="HomePage.html">Home</a></li>
-                <li><a href="index.html">Workshops</a></li>
+                    <li><a calss="active" href="home.php">Home</a></li>
+                <li><a href="workshops.php">Workshops</a></li>
                 <li><a href="LOGIN.php">Login</a></li>
                    </ul>
                 </nav>

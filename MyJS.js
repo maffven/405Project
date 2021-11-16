@@ -21,7 +21,7 @@ function cancelCreate() {
 
   if (r == true) {
 
-    window.location.replace('HomePage.html');
+    window.location.replace('home.php');
   } else {
     alert('Cancellation Failed');
   }

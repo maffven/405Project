@@ -103,29 +103,7 @@
                     </div>
                 </div>
             </tr>
-
-            <tr>
-                <div class="homeDiv">
-                    <h1>Check our recent workshop</h1>
-                    <div>
-                            <img src="image/painting.png" height="300" width="400">
-                            <h2>Painting Workshop</h2>
-                            <p>The ability to understand color can easily be broken down into logical methodical
-                                elements.
-                                <br>First, we will learn how to mix what we see by defining a color in terms of hue,
-                                saturation,
-                                and value.<br>
-                                With this method, students will gain the capability to match any color with ease.
-                                <br>Next, we will discuss the use for a split primary palette,and the effects of
-                                transparent
-                                color.
-                                Students will understand the strengths and limitations of every color on and off their
-                                palette.
-                            </p>
-                    </div>
-                </div>
-            </tr>
-
+            
             <tr>
                 <div class="homeDiv">
                     <h1>How to contact us</h1>
