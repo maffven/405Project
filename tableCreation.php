@@ -5,14 +5,13 @@ $password = "";
 
 try{
 //Create database
-$conn = new PDO("mysql:host=$servername", $username, $password);
-
+$conn = new PDO ("mysql:host=$servername;dbname=Workshops",$username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "CREATE DATABASE Workshops";
+// $sql = "CREATE DATABASE Workshops";
 
 // use exec() because no results are returned
-$conn->exec($sql);
+// $conn->exec($sql);
 echo "Database created successfully<br>";
 
 //create user table
@@ -51,19 +50,4 @@ $sql = "CREATE TABLE `workshop` (
 }
 
 
-
-  
-
-  
-
-
-
-
-
-
-
-
-
-
 ?>
-

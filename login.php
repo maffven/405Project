@@ -7,18 +7,30 @@
         </title>
          
         <link rel="stylesheet" type="text/css" href="Mystyle.css"/>
+        <?php 
+        
+        session_start();
+        include ('func.php');
+        
+        ?>
     </head>
     
     <body>
-      <header>
+    <header>
         <nav id="menu">
-                <label class="logo"><a href="HomePage.html"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label> 
-               <ul>
-                <li><a calss="active" href="HomePage.html">Home</a></li>
-                <li><a href="index.html">Workshops</a></li>
-                <li><a href="LOGIN.php">Login</a></li>
-               </ul>
-            </nav>
+            <label class="logo"><a href="home.php"><img src="image/logo.png" alt="FCIT logo" height="77" width="60"></a></label>
+            <ul>
+                <li><a calss="active" href="home.php">Home</a></li>
+                <li><a href="workshops.php">Workshops</a></li>
+                
+                <li>
+                    <?php if(!isset($_SESSION['userEmail'])){
+                     echo "<a href='login.php'>Login</a>";
+                    } else{
+                        echo "<a href='logout.php'>Logout</a>"; }?>
+                </li>
+            </ul>
+        </nav>
     </header>
     
     <table>
@@ -34,7 +46,6 @@
     <?php 
  $checkEmail =  $checkPass =0;
  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    include 'func.php';
  if (empty($_POST["email"])) {
     $emailerr = 'email is required';
   } else {
@@ -50,10 +61,11 @@
   }
 
 if($checkPass==1 && $checkEmail==1){
-  checkLogin($email, $password);
-   $email = validate($_POST['email']);
-    $password = validate($_POST['password']);
-   
+  
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    checkLogin($email, $password);
+    $_SESSION["userEmail"]=$email; 
 }
  }
   function test_input($data) {

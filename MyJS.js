@@ -1,45 +1,48 @@
 
 
-function confirmCreate() { 
-  var r = confirm('Press ok to confirm your submission.');
+function confirmCreate() {
 
-   if (r == true) {
 
-       window.location.replace('LOGIN.html');
-   } else {
-       alert('Submission Failed');
-   }
-   return false;         
+  if (confirm('Press ok to confirm your submission.')== true) {
+
+    return true;
+  } else {
+    
+    alert('Submission Failed');
+    return false;
+
+  }
+
 
 }
 
-function cancelCreate() { 
+function cancelCreate() {
   var r = confirm('Are you sure you want to cancel?');
 
-   if (r == true) {
+  if (r == true) {
 
-       window.location.replace('HomePage.html');
-   } else {
-       alert('Cancellation Failed');
-   }
-   return false;         
+    window.location.replace('HomePage.html');
+  } else {
+    alert('Cancellation Failed');
+  }
+  return false;
 
 }
 
-function addHintTextPassword(){
+function addHintTextPassword() {
   document.getElementById("herPass").placeholder = "Enter a password longer than 6 characters";
 }
-function addHintTextFirstName(){
+function addHintTextFirstName() {
   document.getElementById("firstName").placeholder = "Type your first name here please";
 }
-function addHintTextLastName(){
+function addHintTextLastName() {
   document.getElementById("lastName").placeholder = "Type your last name here please";
 }
 
-function addHintTextEmail(){
+function addHintTextEmail() {
   document.getElementById("email").placeholder = "Type your email here please";
 }
 
-function changeColor(id){
-  document.getElementById(id).style.color="green";
+function changeColor(id) {
+  document.getElementById(id).style.color = "green";
 }

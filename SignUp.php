@@ -7,16 +7,18 @@
            Sign up 
         </title>
         <link rel="stylesheet" type="text/css" href="Mystyle.css"/>
+        <script src="MyJS.js"<?php time();?>></script>
        
     </head>
-    <body onload="run()">
+    <body >
     <?php 
+    include ('func.php');
 $Fnameerr = $Lnameerr  = $majorerr = $passworderr = $emailerr = $gendererr = $agreementerr = " ";
 $Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=  " ";
 $conn = $sql ="";
 $checkMajor = $checkEmail = $checkFn = $checkGender = $checkLn = $checkReason = $checkAgree= $checkPass =0;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    include 'func.php';
+    
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
@@ -86,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   if($checkEmail==1 && $checkFn==1 && $checkGender==1 && $checkLn==1 && $checkMajor==1 && $checkPass
 ==1 && $checkReason==1 && $checkAgree==1){
     addUser($Fname, $Lname, $reason, $gender,$email, $password, $major);
+    header("location:login.php");
    
 }
 }
@@ -119,8 +122,8 @@ function test_input($data) {
 
 
 
-   <form method ="post" action ="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onreset="return cancelCreate();">
-
+   <form method ="post" action ="" onreset="return cancelCreate();" onsubmit="return confirmCreate();">
+ 
     <p id="login"> Register </p>
     <label>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
     <br>
@@ -235,7 +238,7 @@ function test_input($data) {
   </tr>
 </tfoot>
 </table>
-<script src="MyJS.js"></script>
+
 
 
 </body>
