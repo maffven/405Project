@@ -32,7 +32,7 @@
     <table id="workshopTable" border="2px">
         <tbody>
             <tr>
-                <td class="workshopsection" onmouseover="writeText('The ability to understand color can easily be broken down into logical methodical elements.br>First, we will learn how to mix what we see by defining a color in terms of hue, saturation,and value.<br>With this method, students will gain the capability to match any color with ease.<br>Next, we will discuss the use for a split primary palette,and the effects of transparent color.Students will understand the strengths and limitations of every color on and off their palette.', 'painting')">
+                <td class="workshopsection" onclick="viewDetails()" onmouseover="writeText('The ability to understand color can easily be broken down into logical methodical elements.br>First, we will learn how to mix what we see by defining a color in terms of hue, saturation,and value.<br>With this method, students will gain the capability to match any color with ease.<br>Next, we will discuss the use for a split primary palette,and the effects of transparent color.Students will understand the strengths and limitations of every color on and off their palette.', 'painting')">
                     <img src="image/painting.png" height="300" width="400">
                     <h2>Painting Workshop</h2>
                     <p id="painting">
@@ -51,8 +51,8 @@
                     }
                     ?>
                 </td>
-                <td class="workshopsection" onmouseover="writeText('The workshop will include hands-on demonstrations with the camera as well as basic digital image editing techniques. <br> We will discuss the work of great photographers alongside your own photographs in order to better understand the fundamentals of composition to create compelling imagery.<br> Expect to leave the class with a project you are proud of and a working knowledge of your camera.','camera')">
-                    <img src="image/Camera.png" height="300" width="400">
+                <td class="workshopsection" onclick="viewDetails()" onmouseover="writeText('The workshop will include hands-on demonstrations with the camera as well as basic digital image editing techniques. <br> We will discuss the work of great photographers alongside your own photographs in order to better understand the fundamentals of composition to create compelling imagery.<br> Expect to leave the class with a project you are proud of and a working knowledge of your camera.','camera')">
+                    <img src="image/Camera.png" onclick="viewDetails()" height="300" width="400">
                     <h2>Photography Workshop</h2>
                     <p id="camera">
                     </p>
@@ -71,8 +71,8 @@
                 </td>
             </tr>
             <tr>
-                <td class="workshopsection" onmouseup="changeColor(this,'white','#60B350')" onmouseover="writeText('Whether you fancy learning something new for fun, you’re new to cake decorating and want to learn new skills or you’re a cake business owner and would like to take your skills to the next level we have something for you. <br> If you’d like to learn how to properly decorate a cake with sugarpaste fondant then this class is for you. It’s perfect for beginners and improvers.','cake')">
-                    <img src="image/Cake.png" height="300" width="400">
+                <td class="workshopsection" onclick="viewDetails()" onmouseup="changeColor(this,'white','#60B350')" onmouseover="writeText('Whether you fancy learning something new for fun, you’re new to cake decorating and want to learn new skills or you’re a cake business owner and would like to take your skills to the next level we have something for you. <br> If you’d like to learn how to properly decorate a cake with sugarpaste fondant then this class is for you. It’s perfect for beginners and improvers.','cake')">
+                    <img src="image/Cake.png" onclick="viewDetails()" height="300" width="400">
                     <h2>Cake Decoration Workshop</h2>
                     <p id="cake">
                     </p>
@@ -90,8 +90,8 @@
                     ?>
                 </td>
 
-                <td class="workshopsection" onmouseover="writeText('Workshops emphasize poster design principles, appropriate sections for a research poster, presenting your poster, understanding your audience, and evaluating a poster.','poster')">
-                    <img src="image/Design.png" height="300" width="400">
+                <td class="workshopsection" onclick="viewDetails()" onmouseover="writeText('Workshops emphasize poster design principles, appropriate sections for a research poster, presenting your poster, understanding your audience, and evaluating a poster.','poster')">
+                    <img src="image/Design.png" onclick="viewDetails()" height="300" width="400">
                     <h2>Poster Design Workshop</h2>
                     <p id="poster">
                     </p>
@@ -132,6 +132,9 @@
         button.style.backgroundColor = color1;
         button.style.color = color2;
 
+    }
+    function viewDetails (){
+        window.location.replace('View.html');
     }
 
     document.getElementById("cakeButt").addEventListener("click", function() {

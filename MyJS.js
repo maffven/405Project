@@ -15,7 +15,10 @@ function confirmCreate() {
 
 
 }
+function viewDetails(){
 
+  window.location.replace('View.php');
+}
 function cancelCreate() {
   var r = confirm('Are you sure you want to cancel?');
 

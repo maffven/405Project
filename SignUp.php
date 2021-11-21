@@ -18,21 +18,18 @@ $Fname = $Lname  = $major = $password = $email = $gender = $agreement = $reason=
 $conn = $sql ="";
 $checkMajor = $checkEmail = $checkFn = $checkGender = $checkLn = $checkReason = $checkAgree= $checkPass =0;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    
     if (empty($_POST["Fname"])) {
         $Fnameerr = 'First name is required';
       } else {
         $Fname = test_input($_POST["Fname"]);
         $checkFn=1;
       }
-
       if (empty($_POST["Lname"])) {
         $Lnameerr = 'Last name is required';
       } else {
         $Lname = test_input($_POST["Lname"]);
         $checkLn=1;
       }
-
       $emailValidation = filter_var($_POST["email"],FILTER_SANITIZE_EMAIL); //to filter characters
       if (empty($_POST["email"])) {
         $emailerr = 'email is required';
@@ -45,9 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = test_input($_POST["email"]);
         $checkEmail=1;
       }
-
-
-      
       if (empty($_POST["password"])) {
         $passworderr = 'password is required';
       }else if(strlen($_POST['password'])<= 6 ){
@@ -89,17 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 ==1 && $checkReason==1 && $checkAgree==1){
     addUser($Fname, $Lname, $reason, $gender,$email, $password, $major);
     header("location:login.php");
-   
 }
 }
-
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
   }
- 
 ?>
 
         <header>
@@ -174,8 +165,6 @@ function test_input($data) {
         <tr>
 <p> Email
     <br>
-
-
 <input name="email" type="text"  id="email" onblur="changeColor(id)" onfocus="addHintTextEmail()">
 <?php if(isset($emailerr)) { ?>
       <h5><?php echo $emailerr ?></h5>
